@@ -22,10 +22,15 @@ install packages, or even mount additional thumb drives if you want to save your
 
 If you want to be able to scroll through the STDOUT that is generated, start screen before continuing.
 
+
     screen
+
+(Press ENTER after you get the wall of text)
 
 
 ### 4. Connect to wifi
+
+Run this command, substituting your actual network name:
 
     iwctl station wlan0 connect 'Name of your Network'
     # (It will ask for your network password)
@@ -51,12 +56,13 @@ available to us from the archlinux live USB, so we'll use that.
     git clone https://github.com/oddlama/gentoo-install
 
 
-### 7. Decide whether to generate your own config
+### 7. (Optional) Download the config file from this repo
 
-If you wish to generate your own config, CONTINUE FROM STEP 8, "Menu Config"
+If you would rather enter all values yourself, skip to Step 8 (Menu Config).
 
-Or if you would rather use the config file provided by gentoo-install-for-newbs, run these
-commands and then CONTINUE FROM STEP 12, "Install"
+Otherwise you can run these commands to download the config file provided
+with this repo. You will still need to at least set `Partitioning scheme -> Device`
+since yours will be different from mine.
 
     # Clone this repo, which contains gentoo.conf
     git clone https://github.com/oddlama/gentoo-install-for-newbs
@@ -64,48 +70,50 @@ commands and then CONTINUE FROM STEP 12, "Install"
     # copy `gentoo.conf` into the gentoo-install directory
     cp gentoo-install-for-newbs/gentoo.conf gentoo-install
 
-    # cd into the gentoo-install directory
-    cd gentoo-install
-
-    # CONTINUE FROM STEP 12, "Install"
 
 
 ### 8. Menu Config
 
-If you are here, you have decided to generate your own config file using the menu config.
 
     # cd into the repo
     cd gentoo-install
 
     ./configure
-    # (It will ask to install missing programs. Yes)
-    # (It will also ask for confirmation. Yes)
+    # (It will ask to install missing programs...Yes!)
+    # (It will also ask for confirmation...Yes!)
     # (After that the menu will open)
 
 
 ### 9. Choose Menu Options
 
-Here is what I changed from the default settings when creating the gentoo.conf provided in this repo:
+If you downloaded the config file from this repo, you still need to at least change
+the value of `Partitioning scheme -> Device` to reference the drive you want to install to.
 
-UNchecked:
-    LUKS Encryption      # Because simplicity
-    Use Swap             # Because we have plenty of RAM
-    Enable Bleeding Edge # For reliability
-    Enable sshd          # Because we don't need other people logging in here
+If you are starting from no config, you will need/want to make several changes.
+Here is what I did, and what I recommend:
 
-CHANGED:
-    "Device" to be my actual SSD
+UNCHECK:
+    "Use Swap"             # Because we have plenty of RAM
+    "LUKS Encryption"      # Because simplicity
+    "Enable Bleeding Edge" # For reliability
+    "Enable sshd"          # Because we don't need other people logging in here
 
-CHANGED:
-    "Network Device" to `en* wlan*` (without quotes)
+CHANGE:
+    "Device" to be the actual drive you want to install to
+
+CHANGE:
+    "Timeozne" to where you live
+
+CHANGE:
+    "Interface Name" to `en* wlan*` (without quotes)
     (This makes it so both ethernet and wifi can both use DHCP)
     (You can edit /etc/systemd/network/20-wired.network in your newly installed system to change this later)
 
-CHANGED:
+CHANGE:
     "Additional Packages" to `app-editors/neovim  net-wireless/iwd` (without quotes)
     (This installs neovim and `iwctl` so you can at least edit files and connect to wifi on your new system)
 
-CHANGED:
+CHANGE:
     "Gentoo Mirror" to one that is close to me. YMMV
 
 ### 10. Save Config File
