@@ -1,7 +1,7 @@
-Gentoo Menu-based installer
-===========================
+Gentoo Install for Newbs
+========================
 
-https://github.com/oddlama/gentoo-install
+A guide for using the menu-based base installer located at https://github.com/oddlama/gentoo-install
 
 
 Alternatives
@@ -13,12 +13,12 @@ https://github.com/sormy/gentoo-quick-installer/blob/mainline/gentoo-quick-insta
 
 
 
-HOW
----
+Steps
+-----
 
-1. Create an archlinux bootable usb
+### 1. Create an archlinux bootable usb
 
-2. Boot the archlinux bootable usb as UEFI
+### 2. Boot the archlinux bootable usb as UEFI
 
 (Make sure you boot from UEFI, otherwise the menu seems to assume uefi is not supported)
 
@@ -29,22 +29,22 @@ You can also mount additional thumb drives if you want to save your config file
 
 
 
-Note once you boot into the archlinux bootable 
+Note once you boot into the archlinux bootable
 
-3. (Optional) Start screen so you can scroll
+### 3. (Optional) Start screen so you can scroll
 
-4. Connect to wifi
+### 4. Connect to wifi
 
     iwctl station wlan0 connect 'Name of your Network'
     # (It will ask for your network password)
 
-5. Verify network
+### 5. Verify network
 
     curl example.com
     # (Make sure you get some html back)
 
 
-6. Clone the repo
+### 6. Clone the oddlama/gentoo-install repo
 
 
     # Install git (note the "y" also updates pacman databases)
@@ -56,7 +56,7 @@ Note once you boot into the archlinux bootable
 
 
 
-7. Run ./configure (OR copy a config file from USB)
+### 7. Run ./configure (OR copy a config file from USB)
 
     cd gentoo-install
 
@@ -66,7 +66,7 @@ Note once you boot into the archlinux bootable
     # (After that the menu will open)
 
 
-8. Choose Menu Options
+### 8. Choose Menu Options
 
 I UNchecked:
 
@@ -77,7 +77,7 @@ I UNchecked:
 
 I changed "Device" to the SSD
 
-NEED to change the network device. 
+NEED to change the network device.
     USE THIS: `en* wlan*`
     It appears to only accept one, although it says wildcards are okay..
     See 2.1.1 on this page for what can be used for "Name": https://wiki.archlinux.org/title/Systemd-networkd
@@ -102,13 +102,13 @@ NEED/WANT to add some packages: neovim, iwd
 NEED to find out which additional packages we will want to get X.org working....
 (or could leave that till later since we probably need some config too)
 
-9. Save Config File
+### 9. Save Config File
 
 I saved to the default (gentoo.conf)
 
-10. Exit the menu
+### 10. Exit the menu
 
-11. Install
+### 11. Install
 
     ./install
     # (It will ask you if you want to install missing programs)
@@ -119,7 +119,7 @@ Note it will display in grey above which partitions it intends to create.
 
 ### After this, the rest of the install is hands-off until it asks for a root password right before finishing.
 
-Creates partitions 
+Creates partitions
 formats the partitions
 downloads the stage3 tarball
 verifies the tarball integrity
@@ -136,7 +136,7 @@ Emerges 16 things
 
     sys-kernel/linux-firmware not found installed on your system
     This package provides various firmware files that may be needed
-    for your hardware to work. If in doubt, it is recommended 
+    for your hardware to work. If in doubt, it is recommended
     to pause or abort the build process and install it before resuming.
 
     If you decide to install the linux-firmware later, you can rebuild
@@ -219,7 +219,7 @@ How about this guide
 https://wiki.gentoo.org/wiki/Systemd/systemd-networkd
 
     systemctl enable --now systemd-networkd.service
-     
+
 After installing that ^^, you can run `networkctl` to see which interfaces are configured
 
 
