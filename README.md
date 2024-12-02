@@ -56,9 +56,9 @@ available to us from the archlinux live USB, so we'll use that.
 If you wish to generate your own config, CONTINUE FROM STEP 8, "Menu Config"
 
 Or if you would rather use the config file provided by gentoo-install-for-newbs, run these
-command and then CONTINUE FROM STEP 12, "Install"
+commands and then CONTINUE FROM STEP 12, "Install"
 
-    # Clone this repo
+    # Clone this repo, which contains gentoo.conf
     git clone https://github.com/oddlama/gentoo-install-for-newbs
 
     # copy `gentoo.conf` into the gentoo-install directory
