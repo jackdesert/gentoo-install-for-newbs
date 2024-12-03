@@ -114,6 +114,10 @@ CHANGE:
     (This installs neovim and `iwctl` so you can at least edit files and connect to WiFi on your new system)
 
 CHANGE:
+    "Stage 3 variant & Init System" to `desktop-systemd`
+    (This makes it easier to build a desktop system out of it later)
+
+CHANGE:
     "Gentoo Mirror" to one that is close to you.
 
 ### 10. Save Config File
