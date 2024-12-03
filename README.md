@@ -9,7 +9,7 @@ Steps
 
 ### 1. Create an archlinux bootable usb
 
-https://archlinux.org/download/
+You can download the ISO from https://archlinux.org/download/
 
 ### 2. Boot into the archlinux bootable usb using UEFI
 
@@ -75,7 +75,7 @@ since yours will be different from mine.
 ### 8. Menu Config
 
 
-    # cd into the repo
+    # Change directory
     cd gentoo-install
 
     ./configure
@@ -102,7 +102,7 @@ CHANGE:
     "Device" to be the actual drive you want to install to
 
 CHANGE:
-    "Timeozne" to where you live
+    "Timezone" to where you live
 
 CHANGE:
     "Interface Name" to `en* wlan*`
@@ -110,7 +110,7 @@ CHANGE:
     (You can edit /etc/systemd/network/20-wired.network in your newly installed system to change this later)
 
 CHANGE:
-    "Additional Packages" to `app-editors/neovim  net-wireless/iwd`
+    "Additional Packages" to `app-editors/neovim net-wireless/iwd`
     (This installs neovim and `iwctl` so you can at least edit files and connect to WiFi on your new system)
 
 CHANGE:
@@ -118,7 +118,7 @@ CHANGE:
 
 ### 10. Save Config File
 
-I saved to the default filename (gentoo.conf)
+Save to the default filename (gentoo.conf)
 
 ### 11. Exit the menu
 
