@@ -1,7 +1,7 @@
 Gentoo Install for Newbs
 ========================
 
-A guide for using the [oddlama's menu-based base installer](https://github.com/oddlama/gentoo-install)
+A guide for using oddlama's  [menu-based gentoo-install](https://github.com/oddlama/gentoo-install)
 
 
 Steps
