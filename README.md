@@ -65,7 +65,7 @@ with this repo. You will still need to at least set `Partitioning scheme -> Devi
 since yours will be different from mine.
 
     # Clone this repo, which contains gentoo.conf
-    git clone https://github.com/oddlama/gentoo-install-for-newbs
+    git clone https://github.com/jackdesert/gentoo-install-for-newbs
 
     # copy `gentoo.conf` into the gentoo-install directory
     cp gentoo-install-for-newbs/gentoo.conf gentoo-install
