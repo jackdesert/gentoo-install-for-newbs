@@ -1,7 +1,7 @@
 Gentoo Install for Newbs
 ========================
 
-A guide for using the menu-based base installer located at https://github.com/oddlama/gentoo-install
+A guide for using the [oddlama's menu-based base installer](https://github.com/oddlama/gentoo-install)
 
 
 Steps
@@ -28,7 +28,7 @@ If you want to be able to scroll through the STDOUT that is generated, start scr
 (Press ENTER after you get the wall of text)
 
 
-### 4. Connect to wifi
+### 4. Connect to WiFi
 
 Run this command, substituting your actual network name:
 
@@ -43,12 +43,12 @@ Make sure the network works, since we will need it for subsequent steps.
     # (Make sure you get some html back)
 
 
-### 6. Clone the oddlama/gentoo-install repo
+### 6. Clone the [oddlama/gentoo-install](https://github.com/oddlama/gentoo-install) repo
 
 Earlier I said you could install packages. `pacman` is the package manager
 available to us from the archlinux live USB, so we'll use that.
 
-    # Install git (note the "y" also updates pacman databases)
+    # Install git (note the `-y` flag also updates pacman databases)
     pacman -Sy git
     # (It will ask for confirmation)
 
@@ -105,13 +105,13 @@ CHANGE:
     "Timeozne" to where you live
 
 CHANGE:
-    "Interface Name" to `en* wlan*` (without quotes)
-    (This makes it so both ethernet and wifi can both use DHCP)
+    "Interface Name" to `en* wlan*`
+    (This makes it so both ethernet and WiFi can both use DHCP)
     (You can edit /etc/systemd/network/20-wired.network in your newly installed system to change this later)
 
 CHANGE:
-    "Additional Packages" to `app-editors/neovim  net-wireless/iwd` (without quotes)
-    (This installs neovim and `iwctl` so you can at least edit files and connect to wifi on your new system)
+    "Additional Packages" to `app-editors/neovim  net-wireless/iwd`
+    (This installs neovim and `iwctl` so you can at least edit files and connect to WiFi on your new system)
 
 CHANGE:
     "Gentoo Mirror" to one that is close to me. YMMV
@@ -154,7 +154,7 @@ for your username/password.
 Enter `root` for the user and the password you chose above.
 
 
-### Connect Wifi
+### Connect WiFi
 
 This assumes that you installed `iwd` as one of the "additional packages"
 
