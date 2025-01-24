@@ -92,6 +92,7 @@ the value of `Partitioning scheme -> Device` to reference the drive you want to 
 If you are starting from no config, you will need/want to make several changes.
 Here is what I did, and what I recommend:
 
+```
 UNCHECK:
     "Use Swap"             # Because we have plenty of RAM
     "LUKS Encryption"      # Because simplicity
@@ -110,6 +111,11 @@ CHANGE:
     (You can edit /etc/systemd/network/20-wired.network in your newly installed system to change this later)
 
 CHANGE:
+   "Partitioning scheme -> Device"
+   (Choose the device that you want to install on. )
+   (If there are several nested items for a single drive, choose the topmost one)
+
+CHANGE:
     "Additional Packages" to `app-editors/neovim net-wireless/iwd`
     (This installs neovim and `iwctl` so you can at least edit files and connect to WiFi on your new system)
 
@@ -119,6 +125,7 @@ CHANGE:
 
 CHANGE:
     "Gentoo Mirror" to one that is close to you.
+```
 
 ### 10. Save Config File
 
