@@ -206,3 +206,15 @@ Help:
         must already be mounted under DIR. All required
         special filesystems will be mounted inside, and unmounted when the
         chroot exits"
+
+### Explicit Add EFI
+
+On macbookpro this was required to make system bootable.
+
+Follow steps above for chroot.
+
+Once inside chroot, run the following. Make sure you replace /dev/nvme0n1p1 with a
+different device, if appropriate. (My external SSD used /dev/sda1):
+
+    efibootmgr --create --part 1 --label "Gentoo_nvme" --disk /dev/nvme0n1p1 --loader '\EFI\gentoo\bootx64.efi' -u 'init=/usr/lib/systemd/systemd root=/dev/nvme0n1p2 rootfstype=ext4 raid=noautodetect'
+
