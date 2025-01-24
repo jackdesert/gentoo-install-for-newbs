@@ -100,7 +100,9 @@ UNCHECK:
     "Enable sshd"          # Because we don't need other people logging in here
 
 CHANGE:
-    "Device" to be the actual drive you want to install to
+   "Partitioning scheme -> Device"
+   (Choose the device that you want to install on. )
+   (If there are several nested items for a single drive, choose the topmost one)
 
 CHANGE:
     "Timezone" to where you live
@@ -110,10 +112,6 @@ CHANGE:
     (This makes it so both ethernet and WiFi can both use DHCP)
     (You can edit /etc/systemd/network/20-wired.network in your newly installed system to change this later)
 
-CHANGE:
-   "Partitioning scheme -> Device"
-   (Choose the device that you want to install on. )
-   (If there are several nested items for a single drive, choose the topmost one)
 
 CHANGE:
     "Additional Packages" to `app-editors/neovim net-wireless/iwd`
@@ -180,3 +178,31 @@ This assumes that you installed `iwd` as one of the "additional packages"
     # Verify network
     curl example.com
     # (Expect some html in response)
+
+
+Repairing your System
+---------------------
+
+If you need to chroot into your installed system to make repairs,
+repeat steps 1, 2, and 6 above
+
+1. Create an archlinux bootable usb
+2. Boot into the archlinux bootable usb using UEFI
+6. Clone the [oddlama/gentoo-install](https://github.com/oddlama/gentoo-install) repo
+
+Mount your drive where it is installed.
+For me this was:
+
+    mkdir -p /tmp/gentoo-install/root
+    mount -t ext4 /dev/sda2 /tmp/gentoo-install/root
+
+Now you can chroot with this command:
+
+    ./install --chroot /tmp/gentoo-install/root
+
+
+Help:
+    "chroot into an existing system. the root filesystem
+        must already be mounted under DIR. All required
+        special filesystems will be mounted inside, and unmounted when the
+        chroot exits"
