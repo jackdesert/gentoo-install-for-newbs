@@ -147,6 +147,34 @@ Finally, it will ask if you want to set a password for root...Yes!
 
 Installation complete!
 
+### 13. (Optional) Install and configure rEFInd
+
+This is what was required to get my 2015 macbookpro to boot gentoo.
+
+    # chroot in
+    ./install --chroot /tmp/gentoo-install/root
+
+    # emerge and activate rEFInd
+    emerge --ask sys-boot/refind
+    refind-install
+
+    cd /boot/efi/EFI
+
+    # (Optional) Remove non-working stub kernel
+    rm ../vmlinuz.efi
+
+    # Copy the refind efi to the "removable media boot path" as a fallback.
+    # This was required on the macbook or it would find no EFIs at all.
+    # See https://wiki.gentoo.org/wiki/EFI_System_Partition#Removable_media
+    mkdir BOOT
+    cp refind/refind_x64.efi BOOT/BOOTX64.efi
+
+    # exit the chroot
+    exit
+
+    # reboot the computer
+    reboot
+
 
 Booting Your New System
 -----------------------
@@ -206,15 +234,4 @@ Help:
         must already be mounted under DIR. All required
         special filesystems will be mounted inside, and unmounted when the
         chroot exits"
-
-### Explicit Add EFI
-
-On macbookpro this was required to make system bootable.
-
-Follow steps above for chroot.
-
-Once inside chroot, run the following. Make sure you replace /dev/nvme0n1p1 with a
-different device, if appropriate. (My external SSD used /dev/sda1):
-
-    efibootmgr --create --part 1 --label "Gentoo_nvme" --disk /dev/nvme0n1p1 --loader '\EFI\gentoo\bootx64.efi' -u 'init=/usr/lib/systemd/systemd root=/dev/nvme0n1p2 rootfstype=ext4 raid=noautodetect'
 
