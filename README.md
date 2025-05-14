@@ -169,6 +169,10 @@ This is what was required to get my 2015 macbookpro to boot gentoo.
     mkdir BOOT
     cp refind/refind_x64.efi BOOT/BOOTX64.efi
 
+    # Make sure BOOTX64.efi is at the correct path
+    # If this returns no results, go back and check the commands above
+    ls /boot/efi/EFI/BOOT/BOOTX64.efi
+
     # exit the chroot
     exit
 
@@ -227,6 +231,10 @@ For me this was:
 Now you can chroot with this command:
 
     ./install --chroot /tmp/gentoo-install/root
+
+Now that you are inside the chroot, you can mount your efi partition, if applicable
+
+    mount /boot/efi
 
 
 Help:
