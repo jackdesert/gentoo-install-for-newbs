@@ -167,7 +167,7 @@ This is what was required to get my 2015 macbookpro to boot gentoo.
     # This was required on the macbook or it would find no EFIs at all.
     # See https://wiki.gentoo.org/wiki/EFI_System_Partition#Removable_media
     mkdir BOOT
-    cp refind/refind_x64.efi BOOT/BOOTX64.efi
+    cp refind/refind_x64.efi BOOT
 
     # Make sure BOOTX64.efi is at the correct path
     # If this returns no results, go back and check the commands above
