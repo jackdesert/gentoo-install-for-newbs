@@ -150,6 +150,7 @@ Installation complete!
 ### 13. (Optional) Install and configure rEFInd
 
 This is what was required to get my 2015 macbookpro to boot gentoo.
+This step was also required for the Lenovo X1 Carbon Gen 9 to boot gentoo.
 
     # chroot in
     ./install --chroot /tmp/gentoo-install/root
